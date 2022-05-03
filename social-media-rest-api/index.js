@@ -6,6 +6,9 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const { default: mongoose } = require("mongoose");
 
+const userRoute = require("./routes/user");
+const authRouter = require("./routes/auth");
+
 dotenv.config();
 
 //Database connection
@@ -27,6 +30,9 @@ mongoose.connect(
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("comman"));
+
+app.use("/api/user", userRoute);
+app.use("/api/auth", authRouter);
 
 app.get("/", (req, res)=>{
     res.send("Welcome to Social Media API");
