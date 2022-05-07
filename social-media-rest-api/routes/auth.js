@@ -13,7 +13,7 @@ router.post("/register", async (req, res)=>
         password: req.body.password
     });
 
-    console.log(newUser);
+    //console.log(newUser);
 
     try{
         const salt = await bcrypt.genSalt(10);
