@@ -8,6 +8,7 @@ const { default: mongoose } = require("mongoose");
 
 const userRoute = require("./routes/user");
 const authRouter = require("./routes/auth");
+const postRouter = require("./routes/post");
 
 dotenv.config();
 
@@ -33,6 +34,7 @@ app.use(morgan("comman"));
 
 app.use("/api/user", userRoute);
 app.use("/api/auth", authRouter);
+app.use("/api/post", postRouter);
 
 app.get("/", (req, res)=>{
     res.send("Welcome to Social Media API");
