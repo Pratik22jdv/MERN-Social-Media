@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Post = require("../models/Post"); 
+const User = require("../models/User");
 
 router.get("/", (req, res)=>{
     res.send("Post route");
@@ -78,6 +79,25 @@ router.get("/:id", async (req, res)=>{
         const post = await Post.findById(req.params.id);
         res.status(200).json(post);
     }catch(err){
+        res.status(500).json(err);
+    }
+});
+
+//Get Timeline Post
+router.get("/timeline/all", async (req, res)=>{
+    try{
+        const user = await User.findById(req.body.userId);
+        const friendsIds = user.followings;
+        const userPosts = await Post.find({userId: user._id});
+        console.log(friendsIds);
+        const friendPosts = await Promise.all(
+            friendsIds.map((friendsId)=>{
+                return Post.find({userId: friendsId});
+            })
+        );//We have to use Promise, otherwise it won't be able fetch all friends posts
+        res.status(200).json(userPosts.concat(...friendPosts));
+    }catch(err){
+        console.log(err);
         res.status(500).json(err);
     }
 });
