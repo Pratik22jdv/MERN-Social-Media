@@ -1,5 +1,6 @@
 import React from 'react';
 import "./rightbar.css";
+import { Users } from "../../dummyData"
 
 export default function Rightbar() {
     return (
@@ -13,82 +14,23 @@ export default function Rightbar() {
                 <img className="rightbarAd" src="/assets/ad.png" alt="" />
                 <h4 className="rightbarTitle">Online Friends</h4>
                 <ul className="rightbarFriendList">
-                    <li className="rightbarFriend">
-                        <div className="rightbarProfileImgContainer">
-                            <img
-                                className="rightbarProfileImg"
-                                src="/assets/person/1.jpg"
-                                alt="" />
-                            <span className="rightbarOnline"></span>    
-                        </div>
-                        <span className="rightbarUsername">Pratik Jadhav</span>
-                    </li>
+                    {Users.map((user) => (
 
-                    <li className="rightbarFriend">
-                        <div className="rightbarProfileImgContainer">
-                            <img
-                                className="rightbarProfileImg"
-                                src="/assets/person/1.jpg"
-                                alt="" />
-                            <span className="rightbarOnline"></span>    
-                        </div>
-                        <span className="rightbarUsername">Pratik Jadhav</span>
-                    </li>
+                        <li className="rightbarFriend">
+                            <div className="rightbarProfileImgContainer">
+                                <img
+                                    className="rightbarProfileImg"
+                                    src={user.profilePicture}
+                                    alt="" />
+                                <span className="rightbarOnline"></span>
+                            </div>
+                            <span className="rightbarUsername">{user.username}</span>
+                        </li>
+                        
+                    )
+                    )}
 
-                    <li className="rightbarFriend">
-                        <div className="rightbarProfileImgContainer">
-                            <img
-                                className="rightbarProfileImg"
-                                src="/assets/person/1.jpg"
-                                alt="" />
-                            <span className="rightbarOnline"></span>    
-                        </div>
-                        <span className="rightbarUsername">Pratik Jadhav</span>
-                    </li>
 
-                    <li className="rightbarFriend">
-                        <div className="rightbarProfileImgContainer">
-                            <img
-                                className="rightbarProfileImg"
-                                src="/assets/person/1.jpg"
-                                alt="" />
-                            <span className="rightbarOnline"></span>    
-                        </div>
-                        <span className="rightbarUsername">Pratik Jadhav</span>
-                    </li>
-
-                    <li className="rightbarFriend">
-                        <div className="rightbarProfileImgContainer">
-                            <img
-                                className="rightbarProfileImg"
-                                src="/assets/person/1.jpg"
-                                alt="" />
-                            <span className="rightbarOnline"></span>    
-                        </div>
-                        <span className="rightbarUsername">Pratik Jadhav</span>
-                    </li>
-
-                    <li className="rightbarFriend">
-                        <div className="rightbarProfileImgContainer">
-                            <img
-                                className="rightbarProfileImg"
-                                src="/assets/person/1.jpg"
-                                alt="" />
-                            <span className="rightbarOnline"></span>    
-                        </div>
-                        <span className="rightbarUsername">Pratik Jadhav</span>
-                    </li>
-
-                    <li className="rightbarFriend">
-                        <div className="rightbarProfileImgContainer">
-                            <img
-                                className="rightbarProfileImg"
-                                src="/assets/person/1.jpg"
-                                alt="" />
-                            <span className="rightbarOnline"></span>    
-                        </div>
-                        <span className="rightbarUsername">Pratik Jadhav</span>
-                    </li>
                 </ul>
             </div>
         </div>

@@ -4,6 +4,7 @@ import RssFeedIcon from '@mui/icons-material/RssFeed';
 import ChatIcon from '@mui/icons-material/Chat';
 import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
+import {Users} from "../../dummyData"
 //import Bookmark from '@mui/icons-material/Bookmark';
 
 export default function Sidebar() {
@@ -53,27 +54,18 @@ export default function Sidebar() {
                 </ul>
                 <button className="sidebarButton">Show More</button>
                 <hr className="sidebarHr" />
+
                 <ul className="sidebarFriendList">
-                   <li>
-                       <img className="sidebarFriendImg" src = "/assets/person/1.jpg" alt=""/>
-                       <span className="sidebarFriendName">Pratik Jadhav</span>
+
+                {Users.map((user)=>{
+                   return (
+                    <li className="sidebarListItem">
+                       <img className="sidebarFriendImg" src = {user.profilePicture} alt=""/>
+                       <span className="sidebarFriendName">{user.username}</span>
                    </li>
-                   <li>
-                       <img className="sidebarFriendImg" src = "/assets/person/1.jpg" alt=""/>
-                       <span className="sidebarFriendName">Pratik Jadhav</span>
-                   </li>
-                   <li>
-                       <img className="sidebarFriendImg" src = "/assets/person/1.jpg" alt=""/>
-                       <span className="sidebarFriendName">Pratik Jadhav</span>
-                   </li>
-                   <li>
-                       <img className="sidebarFriendImg" src = "/assets/person/1.jpg" alt=""/>
-                       <span className="sidebarFriendName">Pratik Jadhav</span>
-                   </li>
-                   <li>
-                       <img className="sidebarFriendImg" src = "/assets/person/1.jpg" alt=""/>
-                       <span className="sidebarFriendName">Pratik Jadhav</span>
-                   </li>
+                    )
+                })}
+                   
                 </ul>
             </div>
         </div>
