@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from "react-router-dom";
+
 import './topbar.css';
 import SearchIcon from '@mui/icons-material/Search';
 import PersonIcon from '@mui/icons-material/Person';
@@ -10,7 +12,9 @@ export default function Topbar() {
 
         <div className="topbarContainer">
             <div className="topbarLeft">
-                <span className="logo"> MERN-Social</span>
+                <Link to="/" style={{textDecoration:"none"}}>
+                    <span className="logo"> MERN-Social</span>
+                </Link>
             </div>
 
             <div className="topbarCenter">
@@ -39,7 +43,9 @@ export default function Topbar() {
                         <span className="topbarIconBadge">1</span>
                     </div>
                 </div>
-                <img src="/assets/person/1.jpg" alt="" className="topbarImg"/>
+                <Link to="/profile">
+                <img src="/assets/person/1.jpg" alt="" className="topbarImg" />
+                </Link>
             </div>
         </div>
     );
