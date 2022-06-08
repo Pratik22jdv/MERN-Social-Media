@@ -32,6 +32,15 @@ app.use(express.json());
 app.use(helmet());
 app.use(morgan("comman"));
 
+const cors=require("cors");
+const corsOptions ={
+   origin:'*', 
+   credentials:true,            //access-control-allow-credentials:true
+   optionSuccessStatus:200,
+}
+
+app.use(cors(corsOptions)) 
+
 app.use("/api/user", userRoute);
 app.use("/api/auth", authRouter);
 app.use("/api/post", postRouter);

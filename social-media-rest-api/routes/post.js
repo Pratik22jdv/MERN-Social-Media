@@ -84,9 +84,9 @@ router.get("/:id", async (req, res)=>{
 });
 
 //Get Timeline Post
-router.get("/timeline/all", async (req, res)=>{
+router.get("/timeline/:userId", async (req, res)=>{
     try{
-        const user = await User.findById(req.body.userId);
+        const user = await User.findById(req.params.userId);
         const friendsIds = user.followings;
         const userPosts = await Post.find({userId: user._id});
         console.log(friendsIds);
